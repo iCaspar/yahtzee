@@ -30,15 +30,9 @@ final class Dice
         $this->validateCount();
     }
 
-    public function roll(): array
+    public function roll(): Roll
     {
-        $count = $this->dieCount;
-        $values = [];
-        while($count) {
-            $values[] = 1;
-            $count--;
-        }
-        return $values;
+        return new Roll($this->dieCount);
     }
 
     private function validateCount(): void
