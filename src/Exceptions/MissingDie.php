@@ -6,6 +6,6 @@ namespace Yahtzee\Exceptions;
 
 use Exception;
 
-final class DieNotExists extends Exception
+final class MissingDie extends Exception
 {
 }

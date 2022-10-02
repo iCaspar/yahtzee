@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Yahtzee\Game\Dice;
 
 use Countable;
-use Yahtzee\Exceptions\DieNotExists;
+use Yahtzee\Exceptions\MissingDie;
 
 /**
  * @immutable
@@ -33,7 +33,7 @@ final class Roll implements Countable
     public function dieValue(int $die): int
     {
         if (! isset($this->values[$die -1])) {
-            throw new DieNotExists('Die ' . $die . ' does not exist');
+            throw new MissingDie('Die ' . $die . ' does not exist');
         }
         return $this->values[$die - 1];
     }

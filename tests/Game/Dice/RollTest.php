@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Yahtzee\Game\Dice;
 
 use PHPUnit\Framework\TestCase;
-use Yahtzee\Exceptions\DieNotExists;
+use Yahtzee\Exceptions\MissingDie;
 
 final class RollTest extends TestCase
 {
@@ -33,7 +33,7 @@ final class RollTest extends TestCase
     public function cannot_get_die_value_that_does_not_exist(): void
     {
         $roll = new Roll(1);
-        $this->expectException(DieNotExists::class);
+        $this->expectException(MissingDie::class);
         $this->expectExceptionMessage('Die 2 does not exist');
         $roll->dieValue(2);
     }
